@@ -2,7 +2,7 @@
 1. cd /etc/udev/rules.d
 2. sudo gedit 99-weebee.rules
 
-# add below line
+# Add the below line
 - SUBSYSTEM=="tty", ATTRS{idVendor}=="idVendor", ATTRS{idProduct}=="idProduct", ATTRS{serial}=="serial", SYMLINK+="ttyWeeBee", MODE="0666"
 - SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A506LNAR", SYMLINK+="ttyPixhawk", MODE="0666"
 - SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A506LPEJ", SYMLINK+="ttySTM32Duino", MODE="0666"
