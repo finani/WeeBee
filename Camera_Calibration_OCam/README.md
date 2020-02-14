@@ -1,4 +1,4 @@
-# How to Calibrate Ocam (camera)
+# How to Calibrate OCam (camera)
 1. recommand to use 'WeeBee/Camera_Calibration_Ocam/usb_cam'
 - It is modified from http://wiki.ros.org/usb_cam
 2. sudo apt-get install ros-melodic-image-pipeline
