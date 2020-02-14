@@ -1,0 +1,13 @@
+<launch>
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen">
+    <param name="video_device" value="/dev/video4" />
+    <param name="image_width" value="1920" />
+    <param name="image_height" value="1080" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="camera_info_url" value="package://usb_cam/param/usb_cam.yaml" />
+    <param name="io_method" value="mmap"/>
+    <param name="image_topic_name" value="/camera/image_raw"/>
+  </node>
+  <node pkg="image_proc" type="image_proc" name="image_proc" output="screen" ns="/camera"/>
+</launch>
