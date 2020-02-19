@@ -14,4 +14,4 @@ from ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 # How to download darknet_ros
 1. git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
 2. catkin build darknet_ros -DCMAKE_BUILD_TYPE=Release
-from https://github.com/leggedrobotics/darknet_ros
+- from https://github.com/leggedrobotics/darknet_ros
