@@ -15,3 +15,9 @@ from ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 1. git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
 2. catkin build darknet_ros -DCMAKE_BUILD_TYPE=Release
 - from https://github.com/leggedrobotics/darknet_ros
+# How to turn off downloading the weight files
+1. gedit ~/catkin_ws/darknet_ros/darknet_ros/CMakeLists.txt
+2. [Comment] Download weight lines
+- #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2-tiny.weights -P ${PATH})
+- #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov3.weights -P ${PATH})
+- #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2.weights -P ${PATH})
