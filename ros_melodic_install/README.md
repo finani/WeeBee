@@ -21,7 +21,7 @@
 14. cd ~/catkin_ws/src
 15. catkin_init_workspace
 16. cd ~/catkin_ws/
-17. catkin_make
+17. catkin build
 18. source ~/catkin_ws/devel/setup.bash
 #
 19. gedit ~/.bashrc
