@@ -48,5 +48,5 @@ alias agi='sudo apt-get install'
 alias gs='git status'  
 alias gp='git pull'
 ```
-
+source ~/.bashrc
 
