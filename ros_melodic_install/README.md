@@ -11,11 +11,11 @@
 7. sudo apt install ros-melodic-desktop-full
 8. sudo apt-get install ros-melodic-rqt-*
 #
-9. sudo rosdep init
-10. rosdep update
-11. source /opt/ros/melodic/setup.bash
+9. sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools python-rosdep
 #
-12. sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools
+10. sudo rosdep init
+11. rosdep update
+12. source /opt/ros/melodic/setup.bash
 #
 13. mkdir -p ~/catkin_ws/src
 14. cd ~/catkin_ws/src
