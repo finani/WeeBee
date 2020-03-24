@@ -3,12 +3,14 @@
 2. sudo gedit 99-weebee.rules
 
 # Add the below lines
-- SUBSYSTEM=="tty", ATTRS{idVendor}=="idVendor", ATTRS{idProduct}=="idProduct", ATTRS{serial}=="serial", SYMLINK+="ttyWeeBee", MODE="0666"
-- SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A506LNAR", SYMLINK+="ttyPixhawk", MODE="0666"
-- SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A506LPEJ", SYMLINK+="ttySTM32Duino", MODE="0666"
+```
+SUBSYSTEM=="tty", ATTRS{idVendor}=="idVendor", ATTRS{idProduct}=="idProduct", ATTRS{serial}=="serial", SYMLINK+="ttyWeeBee", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A506LNAR", SYMLINK+="ttyPixhawk", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A506LPEJ", SYMLINK+="ttySTM32Duino", MODE="0666"
+```
 
 # How to check the information
 1. idVendor and id Product from 'lsusb'
 2. serial is from 'ls /dev/serial/by-id'
 3. SYMLINK is the custom tty name
-4. MODE is for autority. It is for serial comunication on the computer including embedded PC.
+4. MODE is for the autority. It is for serial communication on the computer including embedded PC.
