@@ -6,7 +6,7 @@
 3. sudo ethtool enp4s0
 - Check the value of 'wake-on' is 'g' or not ('d' means disable)
 4. sudo ethtool -s enp4s0 wol g
-5. sudo nano /etc/network/interfaces
+5. sudo gedit /etc/network/interfaces
 ```
 up ethtool -s enp4s0 wol g
 ```
