@@ -15,7 +15,7 @@ Set up the repository
  - Check the fingerprint is 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
 8. sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
    
-#
+# 
 Install Docker engine
 9. sudo apt-get update
 10. sudo apt-get install docker-ce docker-ce-cli containerd.io
