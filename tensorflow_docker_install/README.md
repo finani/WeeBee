@@ -19,10 +19,10 @@
 > Install Docker engine
 9. sudo apt-get update
 10. sudo apt-get install docker-ce docker-ce-cli containerd.io
-- or go to 10a-10b. (for specific version)
-10a. apt-cache madison docker-ce
+- or go to 10. a. - b. (for specific version)
+10. a. apt-cache madison docker-ce
  - Check the version of the Docker (<VERSION_STRING> = 5:19.03.8~3-0~ubuntu-bionic)
-10b. sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
+10. b. sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
  - sudo apt-get install docker-ce=5:19.03.8~3-0~ubuntu-bionic docker-ce-cli=5:19.03.8~3-0~ubuntu-bionic containerd.io
 
 # Install NVIDIA Docker Support
