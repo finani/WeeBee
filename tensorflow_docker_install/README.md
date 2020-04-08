@@ -32,8 +32,11 @@ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> c
 13. curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 14. sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
 15. sudo systemctl restart docker
-16. docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
+16. sudo docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
  - Test nvidia-smi with the latest official CUDA image
 
 # Install the tensorflow container
-17. 
+17. docker -v
+ - Check the version of the Docker
+18. sudo docker pull tensorflow/tensorflow:latest-gpu-py3-jupyter
+19. 
