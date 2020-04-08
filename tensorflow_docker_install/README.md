@@ -39,4 +39,7 @@ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> c
 17. docker -v
  - Check the version of the Docker
 18. sudo docker pull tensorflow/tensorflow:latest-gpu-py3-jupyter
-19. 
+
+# Run the tensorflow container
+19. sudo docker run --gpus all -it -p 8888:8888 -p 6006:6006 -v ~/docker:/data tensorflow/tensorflow:latest-gpu-py3-jupyter
+ - Access jupyter link
