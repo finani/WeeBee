@@ -31,5 +31,3 @@ Install Ubuntu on the BossMonster X56K LV.64
 
 # Check the nvidia driver is installed correctely
 1. nvidia-smi
-
-# output
