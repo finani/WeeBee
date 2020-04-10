@@ -4,7 +4,7 @@ Install Ubuntu on the BossMonster X56K LV.64
 
 # Solve the problem that the screen stop
 1. Boot using Ubuntu installer usb
-2. Check the grub screen and the options 'Try Ubuntu without installing', 'Instlal Ubuntu'
+2. Check the grub screen and the options 'Try Ubuntu without installing', 'Install Ubuntu'
 3. press 'e' and change 'quiet splash ---' to 'quiet splash nomodeset'
 
 # Solve the problem permanently
