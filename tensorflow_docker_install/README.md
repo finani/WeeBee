@@ -46,7 +46,6 @@ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> c
 
 20. gedit ~/.bashrc
 ```
-
 # Set Docker Alias
 alias tf2j_run="sudo docker run --gpus all -it --rm -p 8888:8888 -p 6006:6006 -h tf2j --name tf2j -v ~/docker:/tf tensorflow/tensorflow:latest-gpu-py3-jupyter"
 alias tf2j_exec="sudo docker exec -it tf2j /bin/bash"
