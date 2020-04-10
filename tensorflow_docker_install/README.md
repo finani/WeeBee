@@ -5,6 +5,8 @@
  - Check that GPUs are visible
 
 # Install the Docker on Ubuntu
+> Install the Docker (tensorflow/tensorflow:latest-gpu-py3-jupyter)
+
 > Set up the repository
 3. sudo apt-get remove docker docker-engine docker.io containerd runc
 - Delete old version of the docker
