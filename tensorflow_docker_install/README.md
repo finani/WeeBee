@@ -42,7 +42,7 @@ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> c
 
 # Run the tensorflow container
 19. sudo docker run --gpus all -it --rm -p 8888:8888 -p 6006:6006 -h tf2j --name tf2j -v ~/docker:/data tensorflow/tensorflow:latest-gpu-py3-jupyter
- - Access jupyter link
+ - Access the jupyter link
 
 20. gedit ~/.bashrc
 ```
