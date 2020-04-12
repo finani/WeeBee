@@ -39,7 +39,7 @@ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> c
 17. docker -v
  - Check the version of the Docker
 18. sudo docker pull tensorflow/tensorflow:latest-gpu-py3-jupyter
- - tensorflow/tensorflow:1.13.2-gpu-py3-jupyter for MobileNet
+ - sudo docker pull tensorflow/tensorflow:1.13.2-gpu-py3-jupyter for MobileNet
 
 # Run the tensorflow container
 19. sudo docker run --gpus all -it --rm -p 8888:8888 -p 6006:6006 -h tf2j --name tf2j -v ~/docker:/data tensorflow/tensorflow:latest-gpu-py3-jupyter
