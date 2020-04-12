@@ -4,7 +4,7 @@
 2. nvidia-smi
  - Check that GPUs are visible
 
-# Install the Docker (latest-gpu-py3-jupyter) on Ubuntu
+# Install the Docker on Ubuntu
 > Set up the repository
 3. sudo apt-get remove docker docker-engine docker.io containerd runc
 - Delete old version of the docker
@@ -35,10 +35,11 @@ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> c
 16. sudo docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
  - Test nvidia-smi with the latest official CUDA image
 
-# Install the tensorflow container
+# Install the tensorflow container (latest-gpu-py3-jupyter)
 17. docker -v
  - Check the version of the Docker
 18. sudo docker pull tensorflow/tensorflow:latest-gpu-py3-jupyter
+ - tensorflow/tensorflow:1.13.2-gpu-py3-jupyter for MobileNet
 
 # Run the tensorflow container
 19. sudo docker run --gpus all -it --rm -p 8888:8888 -p 6006:6006 -h tf2j --name tf2j -v ~/docker:/data tensorflow/tensorflow:latest-gpu-py3-jupyter
