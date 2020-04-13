@@ -44,13 +44,13 @@ tf.gfile.Exists -> tf.io.gfile.exists
 11. tar -xvf inception_v3_2016_08_28.tar.gz
 12. rm inception_v3_2016_08_28.tar.gz
 
-# Install Bazel 0.18.0
-1. wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
+# Install Bazel 0.24.1
+1. wget https://github.com/bazelbuild/bazel/releases/download/0.24.1/bazel-0.24.1-installer-linux-x86_64.sh
 - on the host
-- If you want to run this on the docker, do apt-get install wget && wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
-- https://github.com/bazelbuild/bazel/releases/tag/0.18.0
-2. chmod +x bazel-0.18.0-installer-linux-x86_64.sh
-3. ./bazel-0.18.0-installer-linux-x86_64.sh --user
+- If you want to run this on the docker, do apt-get install wget && wget https://github.com/bazelbuild/bazel/releases/download/0.24.1/bazel-0.24.1-installer-linux-x86_64.sh
+- https://github.com/bazelbuild/bazel/releases/tag/0.24.1
+2. chmod +x bazel-0.24.1-installer-linux-x86_64.sh
+3. ./bazel-0.24.1-installer-linux-x86_64.sh --user
 4. export PATH="$PATH:$HOME/bin"
 
 # Fine-Tuning pre-trained model
