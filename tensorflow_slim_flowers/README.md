@@ -49,7 +49,7 @@ tf.gfile.Exists -> tf.io.gfile.exists
 - on the host
 - If you want to run this on the docker, do apt-get install wget && wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
 - https://github.com/bazelbuild/bazel/releases/tag/0.18.0
-2. chmod +x bazel-<version>-installer-linux-x86_64.sh
+2. chmod +x bazel-0.18.0-installer-linux-x86_64.sh
 3. ./bazel-0.18.0-installer-linux-x86_64.sh --user
 4. export PATH="$PATH:$HOME/bin"
 
