@@ -81,7 +81,7 @@ tf.gfile.Exists -> tf.io.gfile.exists
 ```
 > ...
 
-# Train the model from first
+# Train the model from the first
 1. DATASET_DIR=/tf/data/flowers
 2. TRAIN_DIR=/tf/data/train_logs
 3. python /tf/models/research/slim/train_image_classifier.py \
@@ -93,3 +93,26 @@ tf.gfile.Exists -> tf.io.gfile.exists
     --clone_on_cpu=True
 4. tensorboard --logdir=/tf/data/train_logs
 - http://127.0.0.1:6006
+
+# Evaluate the trained model
+1. python /tf/models/research/slim/eval_image_classifier.py \
+    --alsologtostderr \
+    --checkpoint_path=${CHECKPOINT_FILE} \
+    --dataset_dir=${DATASET_DIR} \
+    --dataset_name=flowers \
+    --dataset_split_name=validation \
+    --model_name=inception_v3
+
+# Freeze the graph
+1. python /tf/models/research/slim/export_inference_graph.py \
+  --alsologtostderr \
+  --model_name=inception_v3 \
+  --output_file=/tf/data/inception_v3_inf_graph.pb
+2. python /usr/local/lib/python3.6/dist-packages/tensorflow/python/tools/freeze_graph.py \
+  --input_graph=/tf/data/inception_v3_inf_graph.pb \
+  --input_checkpoint=/tf/data/flowers-models/model.ckpt-20177 \
+  --input_binary=true \
+  --output_graph=/tf/data/flowers-models/frozen_inception_v3-flowers-20177.pb \
+  --output_node_names=InceptionV3/Predictions/Reshape_1
+  
+  
