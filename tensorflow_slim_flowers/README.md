@@ -39,7 +39,7 @@ tf.gfile.Exists -> tf.io.gfile.exists
 8. CHECKPOINT_DIR=/tf/data/my_checkpoints
 9. cd ${CHECKPOINT_DIR}
 10. cd ~/docker/data/my_checkpoints && sudo wget http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz
-- on host
+- on the host
 - If you want to run this on the docker, do apt-get install wget && wget http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz
 11. tar -xvf inception_v3_2016_08_28.tar.gz
 12. rm inception_v3_2016_08_28.tar.gz
