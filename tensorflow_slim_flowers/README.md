@@ -1,5 +1,5 @@
 # Download the git repository (tensorflow/models) on the Host
-> Based on tensorflow:1.14.0-gpu-py3-jupyter
+> Based on tensorflow/tensorflow:1.12.0-devel-gpu-py3
 1. git clone https://github.com/tensorflow/models/
 - on the host becuase the docker don't have the git
 - If you want to run this on the docker, do apt-get install git-all
