@@ -1,3 +1,5 @@
+> Stopped
+
 # Download the git repository (tensorflow/models) on the Host
 > Based on tensorflow/tensorflow:1.12.0-devel-gpu-py3
 1. git clone https://github.com/tensorflow/models/
