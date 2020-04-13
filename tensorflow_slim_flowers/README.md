@@ -58,6 +58,8 @@ tf.gfile.Exists -> tf.io.gfile.exists
     --checkpoint_exclude_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
     --trainable_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
     --clone_on_cpu=True
+5. tensorboard --logdir=/tf/data/flowers-models/inception_v3
+- http://127.0.0.1:6006
     
 > gedit ~/docker/models/research/slim/train_image_classifier.py
 ```
@@ -89,3 +91,5 @@ tf.gfile.Exists -> tf.io.gfile.exists
     --dataset_dir=${DATASET_DIR} \
     --model_name=inception_v3 \
     --clone_on_cpu=True
+4. tensorboard --logdir=/tf/data/train_logs
+- http://127.0.0.1:6006
