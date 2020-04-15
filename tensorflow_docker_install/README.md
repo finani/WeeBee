@@ -25,7 +25,7 @@ apt-cache madison docker-ce
 sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
  - sudo apt-get install docker-ce=5:19.03.8~3-0~ubuntu-bionic docker-ce-cli=5:19.03.8~3-0~ubuntu-bionic containerd.io
 ```
-# Install NVIDIA Docker Support
+# Install NVIDIA Docker
 11. distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 12. curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 13. curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
