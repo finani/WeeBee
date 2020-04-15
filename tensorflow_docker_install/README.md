@@ -5,7 +5,7 @@
  - Check that GPUs are visible
 
 # Install the Docker on Ubuntu
-> Set up the repository
+## Set up the repository
 3. sudo apt-get remove docker docker-engine docker.io containerd runc
 - Delete old version of the docker
 4. sudo apt-get update
@@ -14,9 +14,8 @@
 7. sudo apt-key fingerprint 0EBFCD88
  - Check the fingerprint is 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
 8. sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-   
-# 
-> Install Docker engine
+
+## Install Docker engine
 9. sudo apt-get update
 10. sudo apt-get install docker-ce docker-ce-cli containerd.io
 - or go to the below command lines (for a specific version)
