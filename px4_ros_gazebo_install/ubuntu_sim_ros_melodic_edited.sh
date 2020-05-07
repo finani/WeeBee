@@ -118,3 +118,6 @@ alias sb='source ~/.bashrc'
 alias agi='sudo apt-get install'  
 alias gs='git status'  
 alias gp='git pull'" >> ~/.bashrc
+
+# roslaunch px4 mavros_posix_sitl.launch 
+
