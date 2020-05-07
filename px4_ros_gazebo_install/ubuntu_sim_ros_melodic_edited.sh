@@ -40,7 +40,9 @@ sudo apt install ros-melodic-desktop-full -y
 sudo rosdep init
 rosdep update
 ## Setup environment variables
-rossource="source /opt/ros/melodic/setup.bash"
+rossource="
+# Set ROS Melodic
+source /opt/ros/melodic/setup.bash"
 if grep -Fxq "$rossource" ~/.bashrc; then echo ROS setup.bash already in .bashrc;
 else echo "$rossource" >> ~/.bashrc; fi
 eval $rossource
@@ -84,13 +86,35 @@ if grep -Fxq "$catkin_ws_source" ~/.bashrc; then echo ROS catkin_ws setup.bash a
 else echo "$catkin_ws_source" >> ~/.bashrc; fi
 eval $catkin_ws_source
 
-
 # Go to the firmware directory
-clone_dir=~/src
+clone_dir=~/catkin_ws/src
 sudo apt install git-all -y
 cd $clone_dir
 git clone https://github.com/finani/Firmware.git
-cd $clone_dir/Firmware
-sudo make px4_sitl_default gazebo
+catkin build
 
+# Setup sitl_gazebo environment variables
+sitl_gazebo_source="
+# Set sitl_gazebo path
+export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:~/catkin_ws/src/Firmware/Tools/sitl_gazebo"
+echo "$sitl_gazebo_source" >> ~/.bashrc
 
+# Set Alias
+echo "
+# Set ROS Network
+#export ROS_MASTER_URI=http://localhost:11311
+#export ROS_HOSTNAME=localhost
+
+# set ROS Alias Command
+alias cw='cd ~/catkin_ws'
+alias cs='cd ~/catkin_ws/src'
+alias cm='cd ~/catkin_ws && catkin_make'
+alias cb='cd ~/catkin_ws && catkin build'
+
+# Set User Alias
+alias rm='rm -rf'
+alias eb='gedit ~/.bashrc' 
+alias sb='source ~/.bashrc'
+alias agi='sudo apt-get install'  
+alias gs='git status'  
+alias gp='git pull'" >> ~/.bashrc
