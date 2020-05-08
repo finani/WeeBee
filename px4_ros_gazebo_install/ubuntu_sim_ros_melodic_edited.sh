@@ -40,9 +40,10 @@ sudo apt install ros-melodic-desktop-full -y
 sudo rosdep init
 rosdep update
 ## Setup environment variables
-rossource="
-# Set ROS Melodic
-source /opt/ros/melodic/setup.bash"
+tagsource="
+# Set ROS Melodic"
+echo "$tagsource" >> ~/.bashrc
+rossource="source /opt/ros/melodic/setup.bash"
 if grep -Fxq "$rossource" ~/.bashrc; then echo ROS setup.bash already in .bashrc;
 else echo "$rossource" >> ~/.bashrc; fi
 eval $rossource
@@ -87,9 +88,8 @@ else echo "$catkin_ws_source" >> ~/.bashrc; fi
 eval $catkin_ws_source
 
 # Go to the firmware directory
-clone_dir=~/catkin_ws/src
 sudo apt install git-all -y
-cd $clone_dir
+cd ~/catkin_ws/src
 git clone https://github.com/finani/Firmware.git
 catkin build
 
@@ -117,7 +117,13 @@ alias eb='gedit ~/.bashrc'
 alias sb='source ~/.bashrc'
 alias agi='sudo apt-get install'  
 alias gs='git status'  
-alias gp='git pull'" >> ~/.bashrc
+alias gp='git pull'
+" >> ~/.bashrc
+
+source ~/.bashrc
+
+cd ~/catkin_ws/src/Fimware
+make px4_sitl_default gazebo
+cd
 
 # roslaunch px4 mavros_posix_sitl.launch 
-
