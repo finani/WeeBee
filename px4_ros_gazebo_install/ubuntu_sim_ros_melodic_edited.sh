@@ -122,8 +122,16 @@ alias gp='git pull'
 
 source ~/.bashrc
 
+sudo usermod -a -G dialout $USER
+sudo apt-get remove modemmanager -y
+sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav -y
+
 cd ~/catkin_ws/src/Fimware
+wget https://s3-us-west-2.amazonaws.com/qgroundcontrol/latest/QGroundControl.AppImage
+chmod +x ./QGroundControl.AppImage
+
+./QGroundControl.AppImage&
+
 make px4_sitl_default gazebo
-cd
 
 # roslaunch px4 mavros_posix_sitl.launch 
