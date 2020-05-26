@@ -20,13 +20,15 @@
 # Install CUDA (v10.0), cuDNN (v7.6)
 > from https://github.com/localryu/TIL/blob/master/Object_detection/tensorflow_object_detection.md
 12. cd ~/Downloads && wget https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_410.48_linux
+- https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_410.48_linux
 13. sudo sh cuda_10.0.130_410.48_linux
 - 'accept', 'n', 'y', '', 'y', 'y', ''
 - Fallow the command-line prompts except install nvidia-driver (make sure press 'n')
 14. gedit ~/.bashrc
 - export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
 - export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-15. cd ~/Downloads && wget https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.5.1/prod/10.0_20190418/cudnn-10.0-linux-x64-v7.5.1.10.tgz
+15. cd ~/Downloads && wget https://developer.download.nvidia.com/compute/machine-learning/cudnn/secure/v7.5.1/prod/10.0_20190418/cudnn-10.0-linux-x64-v7.5.1.10.tgz?QntrMMEJDmrh6PFPMtRbTcytS5axIAbdOMjsTAY6eNpXhf7JnnJlCqC3mJQ9GlHwQVzfQqiWIO-snDE_2EPCdfRi7Y_szzMa1LA7KxWcCmaCHr0thRypwysGMqoHzgkSlJ6W54i2zlEfqvRo0mAAZiSdQTO0yPsVm8c_R5Sfwzto3w6zzR3Tix1fSQSFEz1TPuG544nmYsXO1rc-j41rXCM
+- https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.5.1/prod/10.0_20190418/cudnn-10.0-linux-x64-v7.5.1.10.tgz
 16. sudo tar -xzvf cudnn-7.5.1*.tgz 
 17. cd cuda && sudo cp include/cudnn.h /usr/local/cuda/include
 19. sudo cp lib64/libcudnn* /usr/local/cuda/lib64
