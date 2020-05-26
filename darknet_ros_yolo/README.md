@@ -11,13 +11,13 @@
 7. [Click] Settings and [Click] SSH and GPG Keys
 8. cat ~/.ssh/id_rsa.pub
 9. [Copy] SSH Keys to New SSH Keys on the Git page
-# How to download darknet_ros
-10. git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
-11. catkin build darknet_ros -DCMAKE_BUILD_TYPE=Release
-- from https://github.com/leggedrobotics/darknet_ros
 # How to turn off downloading the weight files
-12. gedit ~/catkin_ws/darknet_ros/darknet_ros/CMakeLists.txt
-13. [Comment] Download weight lines
+10. gedit ~/catkin_ws/src/darknet_ros/darknet_ros/CMakeLists.txt
+11. [Comment] Download weight lines
 - #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2-tiny.weights -P ${PATH})
 - #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov3.weights -P ${PATH})
 - #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2.weights -P ${PATH})
+# How to download darknet_ros
+12. git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
+13. catkin build darknet_ros -DCMAKE_BUILD_TYPE=Release
+- from https://github.com/leggedrobotics/darknet_ros
