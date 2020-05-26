@@ -17,6 +17,11 @@
 - #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2-tiny.weights -P ${PATH})
 - #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov3.weights -P ${PATH})
 - #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2.weights -P ${PATH})
+# Turn on GPU, CUDNN, OPENCV
+12. gedit ~/catkin_ws/src/darknet_ros/darknet/Makefile
+- GPU = 1
+- CUDNN = 1
+- OPENCV = 1
 # How to download darknet_ros
 12. git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
 13. catkin build darknet_ros -DCMAKE_BUILD_TYPE=Release
