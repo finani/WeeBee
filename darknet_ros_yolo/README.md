@@ -20,7 +20,8 @@
 # Install CUDA (v10.0), cuDNN (v7.6)
 > from https://github.com/localryu/TIL/blob/master/Object_detection/tensorflow_object_detection.md
 12. cd ~/Downloads && wget https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_410.48_linux
-13. sudo sh cuda_10.0.130_410.48_linux.run
+13. sudo sh cuda_10.0.130_410.48_linux
+- 'accept', 'n', 'y', '', 'y', 'y', ''
 - Fallow the command-line prompts except install nvidia-driver (make sure press 'n')
 14. gedit ~/.bashrc
 - export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
