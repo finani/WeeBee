@@ -1,7 +1,7 @@
 # How to make SSH Key
 1. ssh-keygen -t rsa -b 4096 -C "10ezenfinani@gmail.com"
 > from ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-[Enter] x3
+> [Enter] x3
 2. eval "$(ssh-agent -s)"
 3. ssh-add ~/.ssh/id_rsa
 # How to add SSH Key on the Git page
