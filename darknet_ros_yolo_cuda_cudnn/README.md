@@ -14,7 +14,7 @@
 9. cat ~/.ssh/id_rsa.pub
 10. [Copy] SSH Keys to New SSH Keys on the Git page
 # Download darknet_ros
-11. git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
+11. cd ~/catkin_ws/src && git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
 # Turn off downloading the weight files
 12. gedit ~/catkin_ws/src/darknet_ros/darknet_ros/CMakeLists.txt
 13. [Comment] Download weight lines
