@@ -1,4 +1,4 @@
-# Install CUDA (v10.0), cuDNN (v7.6)
+# Install CUDA (v10.0), cuDNN (v7.6), NCCL (v2.0)
 1. ./install-cuda-10-bionic.sh
 # Make SSH Key
 2. ssh-keygen -t rsa -b 4096 -C "10ezenfinani@gmail.com"
