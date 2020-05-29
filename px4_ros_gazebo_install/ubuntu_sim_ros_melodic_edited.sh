@@ -120,6 +120,10 @@ alias sb='source ~/.bashrc'
 alias agi='sudo apt-get install'  
 alias gs='git status'  
 alias gp='git pull'
+
+# Set PX4 Alias
+alias qgc='cd ~/catkin_ws && ./QGroundControl.AppImage'
+alias px4_sitl='roslaunch px4 mavros_posix_sitl.launch'
 " >> ~/.bashrc
 
 source ~/.bashrc
@@ -128,7 +132,7 @@ sudo usermod -a -G dialout $USER
 sudo apt-get remove modemmanager -y
 sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav -y
 
-cd ~/catkin_ws/src/Firmware
+cd ~/catkin_ws
 wget https://s3-us-west-2.amazonaws.com/qgroundcontrol/latest/QGroundControl.AppImage
 chmod +x ./QGroundControl.AppImage
 
