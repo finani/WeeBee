@@ -97,7 +97,7 @@ catkin build
 sitl_gazebo_source="
 # Set sitl_gazebo path
 source ~/catkin_ws/src/Firmware/Tools/setup_gazebo.bash ~/catkin_ws/src/Firmware ~/catkin_ws/src/Firmware/build/px4_sitl_default
-export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:~/catkin_ws/src/Firmware/Tools/sitl_gazebo"
+export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:~/catkin_ws/src/Firmware:~/catkin_ws/src/Firmware/Tools/sitl_gazebo"
 echo "$sitl_gazebo_source" >> ~/.bashrc
 
 # Set Alias
