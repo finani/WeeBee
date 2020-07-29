@@ -138,7 +138,7 @@ chmod +x ./QGroundControl.AppImage
 
 ./QGroundControl.AppImage&
 
-make px4_sitl_default gazebo
+cd ~/catkin_ws/src/Firmware && make px4_sitl_default gazebo
 
 
 # roslaunch px4 mavros_posix_sitl.launch
