@@ -2,6 +2,7 @@
 
 ## How to Flash BSP(Board Support Package) on the QSF Pro
 > Connect QSF Pro using micro usb 2.0 type b (data cable for Android)
+> It will reset the QSF Pro
 1. Download JFlash File
 ```
 mkdir qsf_pro && cd qsf_pro
