@@ -187,3 +187,19 @@ rosrun rqt_image_view rqt_image_view
 ```
 
 ## How to Setup ROS VIO Packages on the QSF Pro
+
+# Trobleshooting
+1. run_docker.sh does not work
+> Error Messages
+```
+Usage: run_docker.sh \<docker-image-path-or-url\>
+Example: run_docker.sh docker-registry.com/excelsior-dockers/excelsior-arm-sdk-eco
+```
+> If run_docker.sh is not working, open 'run_docker.sh' and comment the code below
+```
+# if [ -z ${SPRINT} ]; then
+#     echo "Usage: `basename $0` <docker-image-path-or-url>"
+#     echo "Example: `basename $0` docker-registry.com/excelsior-dockers/excelsior-arm-sdk-eco"
+#     exit 1
+# fi
+```
