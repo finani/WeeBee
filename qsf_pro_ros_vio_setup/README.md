@@ -103,7 +103,7 @@ make
 exit
 ```
 3. Copy and Run Hello_World on the QSF Pro
-> On the Host Computer
+> On the host computer
 ```
 cd ~/docker/flight_pro/sdk_home/examples/cross_compile/cmake/build
 adb shell mkdir -p /data/bin/
