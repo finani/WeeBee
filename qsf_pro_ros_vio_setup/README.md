@@ -1,4 +1,5 @@
 # How to Set up QSF Pro (Qualcomm Snapdragon Flight Pro)
+> https://support.intrinsyc.com/projects/qualcomm-flight-pro-development-kit/wiki
 
 ## Flash BSP(Board Support Package) on the QSF Pro
 > Connect QSF Pro using micro usb 2.0 type b (data cable for Android)
