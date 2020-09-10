@@ -148,7 +148,7 @@ git submodule update
 > Within the docker shell
 ```
 cd ~/ros && catkin_make -DCMAKE_BUILD_TYPE=Release -DQC_SOC_TARGET=APQ8096 install
-cd ~ && tar -cvzf ros.tgz ~/ros
+cd ~/ && tar -cvzf ros.tgz ~/ros
 ```
 6. Copy and Unzip the ROS Workspace on the QSF Pro
 > On the host computer
@@ -157,7 +157,7 @@ adb shell mkdir -p ~/
 cd ~/docker/flight_pro/sdk_home && adb push ros.tgz ~/
 adb shell tar -xvzf ~/ros.tgz
 ```
-6. Set ROS Environment and Stream Camera Image on the QSF Pro
+7. Set ROS Environment and Stream Camera Image on the QSF Pro
 > On the QSF Pro
 ```
 adb shell
@@ -176,7 +176,7 @@ source setup.sh
 cd ../src/snap_cam_ros/
 roslaunch snap_cam_ros hires.launch
 ```
-7. Set ROS Environment and Subscribe Camera Image
+8. Set ROS Environment and Subscribe Camera Image
 > On the host computer
 > SSID: QSoftAP, Password: 1234567890, QSF_Pro_IP: 192.168.1.1, Host_Computer_IP: 192.168.1.52
 ```
@@ -187,6 +187,77 @@ rosrun rqt_image_view rqt_image_view
 ```
 
 ## How to Setup ROS VIO Packages on the QSF Pro
+1. Run Docker
+> On the host computer
+```
+cd ~/docker/flight_pro && ./run_docker.sh atlflight/excelsior-arm-sdk-sfpro_docker
+```
+2. Copy and Insatll SDK Files
+> On the host computer
+```
+cp ~/qsf_pro/mv_1.1.9_8x96.ipk ~/docker/flight_pro/sdk_home/
+```
+> Within the docker shell
+```
+cd ~/ && opkg install mv_1.1.9_8x96.ipk
+```
+3. catkin_make and source bash files
+> Within the docker shell
+```
+source /opt/ros/indigo/setup.bash
+cd ~/ros && catkin_make -DCMAKE_BUILD_TYPE=Release -DQC_SOC_TARGET=APQ8096 install
+source devel/setup.bash
+```
+4. Download ROS Packages from github
+> Within the docker shell
+```
+git clone https://github.com/ATLFlight/snap_imu.git
+git clone https://github.com/ATLFlight/snap_cpa.git
+git clone https://github.com/ATLFlight/qflight_descriptions.git
+git clone https://github.com/ATLFlight/snap_vio.git
+```
+5. catkin_make and copy
+> Within the docker shell
+```
+cd ~/ros && catkin_make -DCMAKE_BUILD_TYPE=Release -DQC_SOC_TARGET=APQ8096 install
+cd ~/ && tar -cvzf ros.tgz ~/ros
+```
+6. Copy and Unzip the ROS Workspace on the QSF Pro
+> On the host computer
+```
+adb shell rm -r ~/ros ~/ros.tgz
+cd ~/docker/flight_pro/sdk_home && adb push ros.tgz ~/
+adb shell tar -xvzf ~/ros.tgz
+```
+7. Set ROS Environment and Stream Camera Image on the QSF Pro
+> On the QSF Pro
+```
+adb shell
+cd /home/weebee-test/ros/devel/
+export ROS_ROOT=/opt/ros
+export ROS_DISTRO=indigo
+export ROS_PACKAGE_PATH=/opt/ros/indigo/share
+export PATH=$PATH:/opt/ros/indigo/bin
+export LD_LIBRARY_PATH=/opt/ros/indigo/lib
+export PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages
+export ROS_MASTER_URI=http://localhost:11311
+export CMAKE_PREFIX_PATH=/opt/ros/indigo
+touch /opt/ros/indigo/.catkin
+export ROS_IP=192.168.1.1
+source setup.sh
+cd ../src/snap_vio/
+imu_app -s 2 -p 10 &
+roslaunch snap_vio standalone.launch 8074:=false
+```
+8. Set ROS Environment and Subscribe Camera Image
+> On the host computer
+> SSID: QSoftAP, Password: 1234567890, QSF_Pro_IP: 192.168.1.1, Host_Computer_IP: 192.168.1.52
+```
+source /opt/ros/melodic/setup.bash
+export ROS_IP=192.168.1.52
+export ROS_MASTER_URI=http://192.168.1.1:11311
+rosrun rqt_image_view rqt_image_view
+```
 
 # Trobleshooting
 1. run_docker.sh does not work
