@@ -88,6 +88,7 @@ exit
 ```
 ### Docker Usage Example
 1. Copy Examples and Run Docker
+> On the host computer
 ```
 cp ~/qsf_pro/docker/examples ~/docker/flight_pro/sdk_home/examples
 cd ~/docker/flight_pro && ./run_docker.sh atlflight/excelsior-arm-sdk-sfpro_docker
@@ -112,3 +113,76 @@ adb shell ./data/bin/hello
 ```
 
 ## How to Setup ROS on the QSF Pro
+> Run Camera Streaming Example
+1. Run Docker
+> On the host computer
+```
+cd ~/docker/flight_pro && ./run_docker.sh atlflight/excelsior-arm-sdk-sfpro_docker
+```
+2. Create a new workspace for ROS and Run roscore
+> Within the docker shell
+```
+mkdir -p ~/ros/src && cd ~/ros/src
+source /opt/ros/indigo/setup.bash
+catkin_init_workspace
+cd .. && catkin_make
+source ~/ros/devel/setup.bash
+roscore
+[ctrl]+c
+```
+3. Download snap_cam_ros and snap_msgs git files
+> Within the docker shell
+```
+cd ~/ros/src
+git clone https://github.com/ATLFlight/snap_cam_ros.git
+git clone https://github.com/ATLFlight/snap_msgs.git
+```
+4. Set git submodule
+> On the host computer
+```
+cd ~/docker/flight_pro/sdk_home/ros/src/snap_cam_ros
+git submodule init
+git submodule update
+```
+5. Build and Zip the ROS Workspace
+> Within the docker shell
+```
+cd ~/ros && catkin_make -DCMAKE_BUILD_TYPE=Release -DQC_SOC_TARGET=APQ8096 install
+cd ~ && tar -cvzf ros.tgz ~/ros
+```
+6. Copy and Unzip the ROS Workspace on the QSF Pro
+> On the host computer
+```
+adb shell mkdir -p ~/
+cd ~/docker/flight_pro/sdk_home && adb push ros.tgz ~/
+adb shell tar -xvzf ~/ros.tgz
+```
+6. Set ROS Environment and Stream Camera Image on the QSF Pro
+> On the QSF Pro
+```
+adb shell
+cd /home/weebee-test/ros/devel/
+export ROS_ROOT=/opt/ros
+export ROS_DISTRO=indigo
+export ROS_PACKAGE_PATH=/opt/ros/indigo/share
+export PATH=$PATH:/opt/ros/indigo/bin
+export LD_LIBRARY_PATH=/opt/ros/indigo/lib
+export PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages
+export ROS_MASTER_URI=http://localhost:11311
+export CMAKE_PREFIX_PATH=/opt/ros/indigo
+touch /opt/ros/indigo/.catkin
+export ROS_IP=192.168.1.1
+source setup.sh
+cd ../src/snap_cam_ros/
+roslaunch snap_cam_ros hires.launch
+```
+7. Set ROS Environment and Subscribe Camera Image
+> On the host computer
+```
+source /opt/ros/melodic/setup.bash
+export ROS_IP=192.168.1.52
+export ROS_MASTER_URI=http://192.168.1.1:11311
+rosrun rqt_image_view rqt_image_view
+```
+
+## How to Setup ROS VIO Packages on the QSF Pro
