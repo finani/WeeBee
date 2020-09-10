@@ -178,6 +178,7 @@ roslaunch snap_cam_ros hires.launch
 ```
 7. Set ROS Environment and Subscribe Camera Image
 > On the host computer
+> SSID: QSoftAP, Password: 1234567890, QSF_Pro_IP: 192.168.1.1, Host_Computer_IP: 192.168.1.52
 ```
 source /opt/ros/melodic/setup.bash
 export ROS_IP=192.168.1.52
