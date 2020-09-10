@@ -56,10 +56,9 @@ adb shell ln -s /usr/lib/rfsa/adsp/200qc_runtime_params.xml /usr/lib/rfsa/adsp/s
 adb shell start snav
 ```
 8. Sensor Calibration
-> The first one is for sensor calibration and the second one is for thermal calibration. The QSF Pro should be on a level surface during these calibrations.
+> It is for sensor calibration. The QSF Pro should be on a level surface during this calibration.
 ```
 adb shell snav_calibration_manager -s
-adb shell snav_calibration_manager -t 5
 ```
 
 ## Install Docker Image for Development on Host Computer
