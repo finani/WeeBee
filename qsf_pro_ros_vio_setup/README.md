@@ -76,9 +76,39 @@ unzip QualcommFlightPro_APQ8096-LE-1-0-1-r00032.2_Docker.zip
 cd docker && docker load < excelsior-arm-sdk-sfpro_docker.tar
 docker images
 ```
-4. Docker Usage Example
+4. Run Docker and exit
 ```
-
+mkdir -p ~/docker/flight_pro
+cp ~/qsf_pro/docker/run_docker.sh ~/docker/flight_pro
+export SPRINT="null" 
+sudo apt-get install qemu-user-static
+cd ~/docker/flight_pro && sudo chmod a+x run_docker.sh
+./run_docker.sh atlflight/excelsior-arm-sdk-sfpro_docker
+exit
+```
+### Docker Usage Example
+1. Copy Examples and Run Docker
+```
+cp ~/qsf_pro/docker/examples ~/docker/flight_pro/sdk_home/examples
+cd ~/docker/flight_pro && ./run_docker.sh atlflight/excelsior-arm-sdk-sfpro_docker
+```
+2. Build and Run Hello_World on ther Docker
+> Within the docker shell
+```
+cd ~/examples/cross_compile/cmake
+mkdir build && cd build
+cmake ..
+make
+./hello
+exit
+```
+3. Copy and Run Hello_World on the QSF Pro
+> On the Host Computer
+```
+cd ~/docker/flight_pro/sdk_home/examples/cross_compile/cmake/build
+adb shell mkdir -p /data/bin/
+adb push hello /data/bin/
+adb shell ./data/bin/hello
 ```
 
 ## How to Setup ROS on the QSF Pro
