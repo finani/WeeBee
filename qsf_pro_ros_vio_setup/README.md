@@ -58,8 +58,8 @@ adb shell start snav
 8. Sensor Calibration
 > The first one is for sensor calibration and the second one is for thermal calibration. The QSF Pro should be on a level surface during these calibrations.
 ```
-snav_calibration_manager -s
-snav_calibration_manager -t 5
+adb shell snav_calibration_manager -s
+adb shell snav_calibration_manager -t 5
 ```
 
 ## Install Docker Image for Development on Host Computer
