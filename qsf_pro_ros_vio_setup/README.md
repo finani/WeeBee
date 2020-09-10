@@ -9,7 +9,7 @@
 mkdir ~/qsf_pro && cd ~/qsf_pro
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1SHqVo3W6zNKas3e4Rmd6cXlMqIbWd0Nh' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1SHqVo3W6zNKas3e4Rmd6cXlMqIbWd0Nh" -O 'QualcommFlightPro_APQ8096-LE-1-0-1-r00032.2.zip' && rm -rf /tmp/cookies.txt
 ```
-2. unzip & flash
+2. Unzip & Flash
 ```
 unzip QualcommFlightPro_APQ8096-LE-1-0-1-r00032.2.zip
 cd QualcommFlightPro_APQ8096-LE-1-0-1-r00032.2
@@ -63,3 +63,22 @@ adb shell snav_calibration_manager -s
 ```
 
 ## Install Docker Image for Development on Host Computer
+1. Install Docker Engine on Ubuntu
+> https://docs.docker.com/engine/install/ubuntu/
+2. Download Docker File from Google Drive
+```
+cd ~/qsf_pro
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1dfpLzTA9Dl_1Oah6_aqrkHi6Q1y6_n7-' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1dfpLzTA9Dl_1Oah6_aqrkHi6Q1y6_n7-" -O 'QualcommFlightPro_APQ8096-LE-1-0-1-r00032.2_Docker.zip' && rm -rf /tmp/cookies.txt
+```
+3. Unzip & Import Flight Pro Docker Image into Docker
+```
+unzip QualcommFlightPro_APQ8096-LE-1-0-1-r00032.2_Docker.zip
+cd docker && docker load < excelsior-arm-sdk-sfpro_docker.tar
+docker images
+```
+4. Docker Usage Example
+```
+
+```
+
+## How to Setup ROS on the QSF Pro
