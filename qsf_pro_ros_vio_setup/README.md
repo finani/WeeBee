@@ -62,7 +62,7 @@ adb shell start snav
 adb shell snav_calibration_manager -s
 ```
 
-## Install Docker Image for Development on Host Computer
+## Install Docker Image for Development on the Host Computer
 1. Install Docker Engine on Ubuntu
 > https://docs.docker.com/engine/install/ubuntu/
 2. Download Docker File from Google Drive
