@@ -24,7 +24,7 @@ chmod +x jflash.sh
 cd ~/qsf_pro
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1MTOlafF6N1Yv3CKvzXxbzaD72gCfhhsG' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1MTOlafF6N1Yv3CKvzXxbzaD72gCfhhsG" -O 'mv_1.1.9_8x96.ipk' && rm -rf /tmp/cookies.txt
 ```
-2. Copy and Install Machine Vision SDK using adb
+2. Copy & Install Machine Vision SDK using adb
 ```
 sudo apt install adb
 adb shell mkdir -p /data/bin
@@ -45,7 +45,7 @@ adb push snapdragon-flight-license.bin /opt/qcom-licenses/
 cd ~/qsf_pro
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10dmV6-uhf4TLD3qancQXwVm2z8zTPr1e' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10dmV6-uhf4TLD3qancQXwVm2z8zTPr1e" -O 'snav_1.2.59_8x96.ipk' && rm -rf /tmp/cookies.txt
 ```
-6. Copy and Install Navigator SDK using adb
+6. Copy & Install Navigator SDK using adb
 ```
 adb shell mkdir -p /data/bin
 adb push snav_1.2.59_8x96.ipk /data/bin
@@ -77,7 +77,7 @@ unzip QualcommFlightPro_APQ8096-LE-1-0-1-r00032.2_Docker.zip
 cd docker && docker load < excelsior-arm-sdk-sfpro_docker.tar
 docker images
 ```
-4. Run Docker and exit
+4. Run Docker & exit
 ```
 mkdir -p ~/docker/flight_pro
 cp ~/qsf_pro/docker/run_docker.sh ~/docker/flight_pro
@@ -88,13 +88,13 @@ cd ~/docker/flight_pro && sudo chmod a+x run_docker.sh
 exit
 ```
 ### Docker Usage Example
-1. Copy Examples and Run Docker
+1. Copy Examples & Run Docker
 > On the host computer
 ```
 cp ~/qsf_pro/docker/examples ~/docker/flight_pro/sdk_home/examples
 cd ~/docker/flight_pro && ./run_docker.sh atlflight/excelsior-arm-sdk-sfpro_docker
 ```
-2. Build and Run Hello_World on ther Docker
+2. Build & Run Hello_World on ther Docker
 > Within the docker shell
 ```
 cd ~/examples/cross_compile/cmake
@@ -104,7 +104,7 @@ make
 ./hello
 exit
 ```
-3. Copy and Run Hello_World on the QSF Pro
+3. Copy & Run Hello_World on the QSF Pro
 > On the host computer
 ```
 cd ~/docker/flight_pro/sdk_home/examples/cross_compile/cmake/build
@@ -120,7 +120,7 @@ adb shell ./data/bin/hello
 ```
 cd ~/docker/flight_pro && ./run_docker.sh atlflight/excelsior-arm-sdk-sfpro_docker
 ```
-2. Create a new workspace for ROS and Run roscore
+2. Create a new workspace for ROS & Run roscore
 > Within the docker shell
 ```
 mkdir -p ~/ros/src && cd ~/ros/src
@@ -145,20 +145,20 @@ cd ~/docker/flight_pro/sdk_home/ros/src/snap_cam_ros
 git submodule init
 git submodule update
 ```
-5. Build and Zip the ROS Workspace
+5. Build & Zip the ROS Workspace
 > Within the docker shell
 ```
 cd ~/ros && catkin_make -DCMAKE_BUILD_TYPE=Release -DQC_SOC_TARGET=APQ8096 install
 cd ~/ && tar -cvzf ros.tgz ~/ros
 ```
-6. Copy and Unzip the ROS Workspace on the QSF Pro
+6. Copy & Unzip the ROS Workspace on the QSF Pro
 > On the host computer
 ```
 adb shell mkdir -p ~/
 cd ~/docker/flight_pro/sdk_home && adb push ros.tgz ~/
 adb shell tar -xvzf ~/ros.tgz
 ```
-7. Set ROS Environment and Stream Camera Image on the QSF Pro
+7. Set ROS Environment & Stream Camera Image on the QSF Pro
 > Within the QSF Pro
 ```
 adb shell
@@ -167,7 +167,7 @@ source /home/weebee-test/ros/devel/setup.sh
 cd ../src/snap_cam_ros/
 roslaunch snap_cam_ros hires.launch
 ```
-8. Set ROS Environment and Subscribe Camera Image
+8. Set ROS Environment & Subscribe Camera Image
 > On the host computer
 > SSID: QSoftAP, Password: 1234567890, QSF_Pro_IP: 192.168.1.1, Host_Computer_IP: 192.168.1.52
 ```
@@ -183,7 +183,7 @@ rosrun rqt_image_view rqt_image_view
 ```
 cd ~/docker/flight_pro && ./run_docker.sh atlflight/excelsior-arm-sdk-sfpro_docker
 ```
-2. Copy and Insatll SDK Files
+2. Copy & Insatll SDK Files
 > On the host computer
 ```
 cp ~/qsf_pro/mv_1.1.9_8x96.ipk ~/docker/flight_pro/sdk_home/
@@ -192,14 +192,14 @@ cp ~/qsf_pro/mv_1.1.9_8x96.ipk ~/docker/flight_pro/sdk_home/
 ```
 cd ~/ && opkg install mv_1.1.9_8x96.ipk
 ```
-3. catkin_make and source bash files
+3. catkin_make & source bash files
 > Within the docker shell
 ```
 source /opt/ros/indigo/setup.bash
 cd ~/ros && catkin_make -DCMAKE_BUILD_TYPE=Release -DQC_SOC_TARGET=APQ8096 install
 source devel/setup.bash
 ```
-4. Download ROS Packages from github
+4. Download vio packages from github
 > Within the docker shell
 ```
 git clone https://github.com/ATLFlight/snap_imu.git
@@ -207,20 +207,20 @@ git clone https://github.com/ATLFlight/qflight_descriptions.git
 git clone https://github.com/finani/snap_cpa.git
 git clone https://github.com/finani/snap_vio.git
 ```
-5. catkin_make and copy
+5. catkin_make & copy
 > Within the docker shell
 ```
 cd ~/ros && catkin_make -DCMAKE_BUILD_TYPE=Release -DQC_SOC_TARGET=APQ8096 install
 cd ~/ && tar -cvzf ros.tgz ~/ros
 ```
-6. Copy and Unzip the ROS Workspace on the QSF Pro
+6. Copy & Unzip the ROS Workspace on the QSF Pro
 > On the host computer
 ```
 adb shell rm -r ~/ros ~/ros.tgz
 cd ~/docker/flight_pro/sdk_home && adb push ros.tgz ~/
 adb shell tar -xvzf ~/ros.tgz
 ```
-7. Set ROS Environment and Roslaunch vio package on the QSF Pro
+7. Set ROS environment & Roslaunch vio package on the QSF Pro
 > Within the QSF Pro
 ```
 adb shell
@@ -230,9 +230,9 @@ cd /home/weebee-test/ros/src/snap_vio/
 imu_app -s 2 -p 10 &
 roslaunch snap_vio standalone.launch
 ```
-8. Set ROS Environment and Subscribe VIO data
+8. Set ROS Environment & Subscribe VIO data
 > On the host computer
-> SSID: QSoftAP, Password: 1234567890, QSF_Pro_IP: 192.168.1.1, Host_Computer_IP: 192.168.1.52
+> SSID: QSoftAP, Password: 1234567890, QSF_Pro_IP: 192.168.1.1, Host_Computer_IP: 192.168.1.52 [It depends on your system]
 ```
 source /opt/ros/melodic/setup.bash
 export ROS_IP=192.168.1.52
