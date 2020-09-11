@@ -134,7 +134,7 @@ roscore
 > Within the docker shell
 ```
 cd ~/ros/src
-git clone https://github.com/ATLFlight/snap_cam_ros.git
+git clone https://github.com/finani/snap_cam_ros.git
 git clone https://github.com/ATLFlight/snap_msgs.git
 ```
 4. Set git submodule
@@ -212,9 +212,9 @@ source devel/setup.bash
 > Within the docker shell
 ```
 git clone https://github.com/ATLFlight/snap_imu.git
-git clone https://github.com/ATLFlight/snap_cpa.git
+git clone https://github.com/finani/snap_cpa.git
 git clone https://github.com/ATLFlight/qflight_descriptions.git
-git clone https://github.com/ATLFlight/snap_vio.git
+git clone https://github.com/finani/snap_vio.git
 ```
 5. catkin_make and copy
 > Within the docker shell
@@ -247,7 +247,7 @@ export ROS_IP=192.168.1.1
 source setup.sh
 cd ../src/snap_vio/
 imu_app -s 2 -p 10 &
-roslaunch snap_vio standalone.launch 8074:=false
+roslaunch snap_vio standalone.launch
 ```
 8. Set ROS Environment and Subscribe Camera Image
 > On the host computer
