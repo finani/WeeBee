@@ -161,18 +161,8 @@ adb shell tar -xvzf ~/ros.tgz
 > Within the QSF Pro
 ```
 adb shell
-cd /home/weebee-test/ros/devel/
-export ROS_ROOT=/opt/ros
-export ROS_DISTRO=indigo
-export ROS_PACKAGE_PATH=/opt/ros/indigo/share
-export PATH=$PATH:/opt/ros/indigo/bin
-export LD_LIBRARY_PATH=/opt/ros/indigo/lib
-export PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages
-export ROS_MASTER_URI=http://localhost:11311
-export CMAKE_PREFIX_PATH=/opt/ros/indigo
-touch /opt/ros/indigo/.catkin
-export ROS_IP=192.168.1.1
-source setup.sh
+export ROS_ROOT=/opt/ros; export ROS_DISTRO=indigo; export ROS_PACKAGE_PATH=/opt/ros/indigo/share; export PATH=$PATH:/opt/ros/indigo/bin; export LD_LIBRARY_PATH=/opt/ros/indigo/lib; export PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages; export ROS_MASTER_URI=http://localhost:11311; export CMAKE_PREFIX_PATH=/opt/ros/indigo; touch /opt/ros/indigo/.catkin; export ROS_IP=192.168.1.1
+source /home/weebee-test/ros/devel/setup.sh
 cd ../src/snap_cam_ros/
 roslaunch snap_cam_ros hires.launch
 ```
@@ -233,18 +223,8 @@ adb shell tar -xvzf ~/ros.tgz
 > Within the QSF Pro
 ```
 adb shell
-cd /home/weebee-test/ros/devel/
-export ROS_ROOT=/opt/ros
-export ROS_DISTRO=indigo
-export ROS_PACKAGE_PATH=/opt/ros/indigo/share
-export PATH=$PATH:/opt/ros/indigo/bin
-export LD_LIBRARY_PATH=/opt/ros/indigo/lib
-export PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages
-export ROS_MASTER_URI=http://localhost:11311
-export CMAKE_PREFIX_PATH=/opt/ros/indigo
-touch /opt/ros/indigo/.catkin
-export ROS_IP=192.168.1.1
-source setup.sh
+export ROS_ROOT=/opt/ros; export ROS_DISTRO=indigo; export ROS_PACKAGE_PATH=/opt/ros/indigo/share; export PATH=$PATH:/opt/ros/indigo/bin; export LD_LIBRARY_PATH=/opt/ros/indigo/lib; export PYTHONPATH=/opt/ros/indigo/lib/python2.7/site-packages; export ROS_MASTER_URI=http://localhost:11311; export CMAKE_PREFIX_PATH=/opt/ros/indigo; touch /opt/ros/indigo/.catkin; export ROS_IP=192.168.1.1
+source /home/weebee-test/ros/devel/setup.sh
 cd /home/weebee-test/ros/src/snap_vio/
 imu_app -s 2 -p 10 &
 roslaunch snap_vio standalone.launch
