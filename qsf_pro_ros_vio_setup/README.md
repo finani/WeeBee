@@ -3,6 +3,7 @@
 
 ## Flash BSP(Board Support Package) on the QSF Pro
 > Connect QSF Pro using micro usb 2.0 type b (data cable for Android)
+
 > It will reset the QSF Pro
 1. Download JFlash File from Google Drive
 ```
@@ -31,7 +32,7 @@ adb push mv_1.1.9_8x96.ipk /data/bin
 adb shell opkg install /data/bin/mv_1.1.9_8x96.ipk
 ```
 3. How to get license file
-> Open the link below -> Create an acount -> Log in -> Download Navigator SDK File (Same as 5. Navigator SDK) -> Wait 1-2 business days for email with lisence file
+> Open the link below -> Create an acount -> Log in -> Download Navigator SDK File (Same as 5. Navigator SDK) -> Wait 1-2 business days for email with license file
 
 > https://developer.qualcomm.com/software/qualcomm-navigator/tools
 4. Import license file to the QSF Pro
