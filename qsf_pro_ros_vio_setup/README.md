@@ -212,8 +212,8 @@ source devel/setup.bash
 > Within the docker shell
 ```
 git clone https://github.com/ATLFlight/snap_imu.git
-git clone https://github.com/finani/snap_cpa.git
 git clone https://github.com/ATLFlight/qflight_descriptions.git
+git clone https://github.com/finani/snap_cpa.git
 git clone https://github.com/finani/snap_vio.git
 ```
 5. catkin_make and copy
@@ -245,7 +245,7 @@ export CMAKE_PREFIX_PATH=/opt/ros/indigo
 touch /opt/ros/indigo/.catkin
 export ROS_IP=192.168.1.1
 source setup.sh
-cd ../src/snap_vio/
+cd /home/weebee-test/ros/src/snap_vio/
 imu_app -s 2 -p 10 &
 roslaunch snap_vio standalone.launch
 ```
