@@ -158,7 +158,7 @@ cd ~/docker/flight_pro/sdk_home && adb push ros.tgz ~/
 adb shell tar -xvzf ~/ros.tgz
 ```
 7. Set ROS Environment and Stream Camera Image on the QSF Pro
-> On the QSF Pro
+> Within the QSF Pro
 ```
 adb shell
 cd /home/weebee-test/ros/devel/
@@ -229,8 +229,8 @@ adb shell rm -r ~/ros ~/ros.tgz
 cd ~/docker/flight_pro/sdk_home && adb push ros.tgz ~/
 adb shell tar -xvzf ~/ros.tgz
 ```
-7. Set ROS Environment and Stream Camera Image on the QSF Pro
-> On the QSF Pro
+7. Set ROS Environment and Roslaunch vio package on the QSF Pro
+> Within the QSF Pro
 ```
 adb shell
 cd /home/weebee-test/ros/devel/
@@ -249,14 +249,14 @@ cd /home/weebee-test/ros/src/snap_vio/
 imu_app -s 2 -p 10 &
 roslaunch snap_vio standalone.launch
 ```
-8. Set ROS Environment and Subscribe Camera Image
+8. Set ROS Environment and Subscribe VIO data
 > On the host computer
 > SSID: QSoftAP, Password: 1234567890, QSF_Pro_IP: 192.168.1.1, Host_Computer_IP: 192.168.1.52
 ```
 source /opt/ros/melodic/setup.bash
 export ROS_IP=192.168.1.52
 export ROS_MASTER_URI=http://192.168.1.1:11311
-rosrun rqt_image_view rqt_image_view
+rostopic echo /downward/vio/pose -c
 ```
 
 # Trobleshooting
