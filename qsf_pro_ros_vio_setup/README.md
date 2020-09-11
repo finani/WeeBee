@@ -18,7 +18,7 @@ chmod +x jflash.sh
 ./jflash.sh
 ```
 
-## Install Machine Vision & Navigator SDK
+## Install Machine Vision & Navigator SDK on the QSF Pro
 1. Download Machine Vision SDK from Google Drive
 ```
 cd ~/qsf_pro
