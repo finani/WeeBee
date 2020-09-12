@@ -24,7 +24,18 @@ chmod +x jflash.sh
 cd ~/qsf_pro
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1MTOlafF6N1Yv3CKvzXxbzaD72gCfhhsG' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1MTOlafF6N1Yv3CKvzXxbzaD72gCfhhsG" -O 'mv_1.1.9_8x96.ipk' && rm -rf /tmp/cookies.txt
 ```
-2. Copy & Install Machine Vision SDK using adb
+2. Set adb permission
+```
+sudo vi /etc/udev/rules.d/51-android.rules
+```
+> Add below
+```
+#for Device adb interface
+SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", MODE="0666", GROUP="plugdev"
+#for Fastboot bootloader interface
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
+```
+3. Copy & Install Machine Vision SDK using adb
 ```
 sudo apt install adb
 adb shell mkdir -p /data/bin
