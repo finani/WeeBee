@@ -42,33 +42,33 @@ adb shell mkdir -p /data/bin
 adb push mv_1.1.9_8x96.ipk /data/bin
 adb shell opkg install /data/bin/mv_1.1.9_8x96.ipk
 ```
-3. How to get license file
+4. How to get license file
 > Open the link below -> Create an acount -> Log in -> Download Navigator SDK File (Same as 5. Navigator SDK) -> Wait 1-2 business days for email with license file
 
 > https://developer.qualcomm.com/software/qualcomm-navigator/tools
-4. Import license file to the QSF Pro
+5. Import license file to the QSF Pro
 ```
 adb shell mkdir -p /opt/qcom-licenses
 adb push snapdragon-flight-license.bin /opt/qcom-licenses/
 ```
-5. Download Navigator SDK from Google Drive
+6. Download Navigator SDK from Google Drive
 ```
 cd ~/qsf_pro
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10dmV6-uhf4TLD3qancQXwVm2z8zTPr1e' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10dmV6-uhf4TLD3qancQXwVm2z8zTPr1e" -O 'snav_1.2.59_8x96.ipk' && rm -rf /tmp/cookies.txt
 ```
-6. Copy & Install Navigator SDK using adb
+7. Copy & Install Navigator SDK using adb
 ```
 adb shell mkdir -p /data/bin
 adb push snav_1.2.59_8x96.ipk /data/bin
 adb shell opkg install /data/bin/snav_1.2.59_8x96.ipk
 adb shell /etc/snav/enable_snav.sh
 ```
-7. Create symbolic link & Start Navigator
+8. Create symbolic link & Start Navigator
 ```
 adb shell ln -s /usr/lib/rfsa/adsp/200qc_runtime_params.xml /usr/lib/rfsa/adsp/snav_params.xml
 adb shell start snav
 ```
-8. Sensor Calibration
+9. Sensor Calibration
 > It is for sensor calibration. The QSF Pro should be on a level surface during this calibration.
 ```
 adb shell snav_calibration_manager -s
