@@ -88,9 +88,8 @@ else echo "$catkin_ws_source" >> ~/.bashrc; fi
 eval $catkin_ws_source
 
 # Go to the firmware directory and Install dependencies
-sudo apt install python3-pip -y
+sudo apt install python3-pip git-all -y
 pip3 install --user numpy toml empy jinja2 packaging
-sudo apt install git-all -y
 cd ~/catkin_ws/src
 git clone https://github.com/px4/Firmware.git
 catkin build
