@@ -90,7 +90,7 @@ eval $catkin_ws_source
 # Go to the firmware directory
 sudo apt install git-all -y
 cd ~/catkin_ws/src
-git clone https://github.com/finani/Firmware.git
+git clone https://github.com/px4/Firmware.git
 catkin build
 
 # Setup sitl_gazebo environment variables
