@@ -89,15 +89,15 @@ eval $catkin_ws_source
 
 # Go to the firmware directory
 sudo apt install git-all -y
-cd ~/catkin_ws/src
+cd ~/catkin_ws
 git clone https://github.com/finani/Firmware.git
-catkin build
+bash ~/catkin_ws/src/Firmware/Tools/setup/ubuntu.sh
 
 # Setup sitl_gazebo environment variables
 sitl_gazebo_source="
 # Set sitl_gazebo path
-source ~/catkin_ws/src/Firmware/Tools/setup_gazebo.bash ~/catkin_ws/src/Firmware ~/catkin_ws/src/Firmware/build/px4_sitl_default
-export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:~/catkin_ws/src/Firmware:~/catkin_ws/src/Firmware/Tools/sitl_gazebo"
+source ~/catkin_ws/Firmware/Tools/setup_gazebo.bash ~/catkin_ws/Firmware ~/catkin_ws/Firmware/build/px4_sitl_default
+export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:~/catkin_ws/Firmware:~/catkin_ws/Firmware/Tools/sitl_gazebo"
 echo "$sitl_gazebo_source" >> ~/.bashrc
 
 # Set Alias
@@ -138,7 +138,7 @@ chmod +x ./QGroundControl.AppImage
 
 ./QGroundControl.AppImage&
 
-cd ~/catkin_ws/src/Firmware && make px4_sitl_default gazebo
+cd ~/catkin_ws/Firmware && make px4_sitl_default gazebo
 
 
 # roslaunch px4 mavros_posix_sitl.launch
