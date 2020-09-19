@@ -87,11 +87,10 @@ if grep -Fxq "$catkin_ws_source" ~/.bashrc; then echo ROS catkin_ws setup.bash a
 else echo "$catkin_ws_source" >> ~/.bashrc; fi
 eval $catkin_ws_source
 
-# Go to the firmware directory and Install dependencies
-sudo apt install python3-pip git-all -y
-pip3 install --user numpy toml empy jinja2 packaging
+# Go to the firmware directory
+sudo apt install git-all -y
 cd ~/catkin_ws/src
-git clone https://github.com/px4/Firmware.git
+git clone https://github.com/finani/Firmware.git
 catkin build
 
 # Setup sitl_gazebo environment variables
