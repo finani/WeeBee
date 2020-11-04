@@ -10,7 +10,7 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{seria
 ```
 
 # How to check the information
-1. idVendor and id Product from 'lsusb'
+1. idVendor and id Product are from 'lsusb'
 ```
 lsusb
 ```
