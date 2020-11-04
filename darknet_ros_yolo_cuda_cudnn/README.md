@@ -18,9 +18,11 @@
 # Turn off downloading the weight files
 12. gedit ~/catkin_ws/src/darknet_ros/darknet_ros/CMakeLists.txt
 13. [Comment] Download weight lines
-- #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2-tiny.weights -P ${PATH})
-- #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov3.weights -P ${PATH})
-- #execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2.weights -P ${PATH})
+```
+#execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2-tiny.weights -P ${PATH})
+#execute_process(COMMAND wget http://pjreddie.com/media/files/yolov3.weights -P ${PATH})
+#execute_process(COMMAND wget http://pjreddie.com/media/files/yolov2.weights -P ${PATH})
+```
 # Turn on GPU, CUDNN, OPENCV & Build
 14. gedit ~/catkin_ws/src/darknet_ros/darknet/Makefile
 - GPU = 1
