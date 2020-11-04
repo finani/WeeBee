@@ -11,6 +11,12 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{seria
 
 # How to check the information
 1. idVendor and id Product from 'lsusb'
-2. serial is from 'ls /dev/serial/by-id'
+```
+lsusb
+```
+2. serial is from 'udevadm info -a -n /dev/ttyUSB*'
+```
+udevadm info -a -n /dev/ttyUSB*
+```
 3. SYMLINK is the custom tty name
 4. MODE is for the autority. It is for serial communication on the computer including embedded PC.
