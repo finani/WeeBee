@@ -1,15 +1,15 @@
 # ROS Melodic Install
-1. sudo apt-get install chrony ntpdate
+1. sudo apt install chrony ntpdate
 2. sudo ntpdate ntp.ubuntu.com
 #
 3. sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 4. sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 #
-5. sudo apt-get update
-6. sudo apt-get upgrade
+5. sudo apt update
+6. sudo apt upgrade
 #
 7. sudo apt install ros-melodic-desktop-full
-8. sudo apt-get install ros-melodic-rqt-*
+8. sudo apt install ros-melodic-rqt-*
 #
 9. sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools python-rosdep
 #
