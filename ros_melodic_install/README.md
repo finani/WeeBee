@@ -50,3 +50,10 @@ alias gp='git pull'
 ```
 20. source ~/.bashrc
 
+# VS Code Settup
+1. [ctrl + shift + p] C/C++: Edit configurations (UI)
+2. Add include path
+```
+/opt/ros/melodic/include/**
+/usr/include/**
+```
