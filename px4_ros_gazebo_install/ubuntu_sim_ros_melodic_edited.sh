@@ -26,14 +26,14 @@ if [[ $wget_return_code -ne 0 ]]; then echo "Error downloading 'ubuntu_sim_commo
 
 # ROS Melodic
 ## Gazebo simulator dependencies
-sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
+sudo apt install protobuf-compiler libeigen3-dev libopencv-dev -y
 
 ## ROS Gazebo: http://wiki.ros.org/melodic/Installation/Ubuntu
 ## Setup keys
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 ## For keyserver connection problems substitute hkp://pgp.mit.edu:80 or hkp://keyserver.ubuntu.com:80 above.
-sudo apt-get update
+sudo apt update
 ## Get ROS/Gazebo
 sudo apt install ros-melodic-desktop-full -y
 ## Initialize rosdep
@@ -49,13 +49,13 @@ else echo "$rossource" >> ~/.bashrc; fi
 eval $rossource
 
 ## Install rosinstall and other dependencies
-sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential -y
+sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential -y
 
 
 
 # MAVROS: https://dev.px4.io/en/ros/mavros_installation.html
 ## Install dependencies
-sudo apt-get install python-catkin-tools python-rosinstall-generator -y
+sudo apt install python-catkin-tools python-rosinstall-generator -y
 
 ## Create catkin workspace
 mkdir -p ~/catkin_ws/src
@@ -66,7 +66,7 @@ wstool init src
 
 
 # Install MAVROS
-sudo apt-get install ros-melodic-mavros ros-melodic-mavros-extras -y
+sudo apt install ros-melodic-mavros ros-melodic-mavros-extras -y
 
 #Install geographiclib
 sudo apt install geographiclib -y
@@ -87,18 +87,20 @@ if grep -Fxq "$catkin_ws_source" ~/.bashrc; then echo ROS catkin_ws setup.bash a
 else echo "$catkin_ws_source" >> ~/.bashrc; fi
 eval $catkin_ws_source
 
-# Go to the firmware directory
+# Get PX4-Autopilot
 sudo apt install git-all -y
-cd ~/catkin_ws
-git clone https://github.com/PX4/Firmware.git
-bash ~/catkin_ws/Firmware/Tools/setup/ubuntu.sh
+sudo apt upgrade libignition-math2 -y
+cd
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+bash ~/PX4-Autopilot/Tools/setup/ubuntu.sh
 
 # Setup sitl_gazebo environment variables
 sitl_gazebo_source="
 # Set sitl_gazebo path
-source ~/catkin_ws/Firmware/Tools/setup_gazebo.bash ~/catkin_ws/Firmware ~/catkin_ws/Firmware/build/px4_sitl_default
-export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:~/catkin_ws/Firmware:~/catkin_ws/Firmware/Tools/sitl_gazebo"
+source ~/PX4-Autopilot/Tools/setup_gazebo.bash ~/PX4-Autopilot ~/PX4-Autopilot/build/px4_sitl_default
+export ROS_PACKAGE_PATH=~/PX4-Autopilot:~/PX4-Autopilot/Tools/sitl_gazebo${ROS_PACKAGE_PATH:+:${ROS_PACKAGE_PATH}}"
 echo "$sitl_gazebo_source" >> ~/.bashrc
+sed -i '23,25s+echo+#echo+g' ~/PX4-Autopilot/Tools/setup_gazebo.bash
 
 # Set Alias
 echo "
@@ -114,31 +116,29 @@ alias cm='cd ~/catkin_ws && catkin_make'
 alias cb='cd ~/catkin_ws && catkin build'
 
 # Set User Alias
-alias rm='rm -rf'
 alias eb='gedit ~/.bashrc' 
-alias sb='source ~/.bashrc'
-alias agi='sudo apt-get install'  
+alias sb='source ~/.bashrc' 
 alias gs='git status'  
 alias gp='git pull'
 
 # Set PX4 Alias
-alias qgc='cd ~/catkin_ws && ./QGroundControl.AppImage'
+alias qgc='cd && ./QGroundControl.AppImage'
 alias px4_sitl='roslaunch px4 mavros_posix_sitl.launch'
 " >> ~/.bashrc
 
 source ~/.bashrc
 
 sudo usermod -a -G dialout $USER
-sudo apt-get remove modemmanager -y
-sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav -y
+sudo apt remove modemmanager -y
+sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
 
-cd ~/catkin_ws
+cd
 wget https://s3-us-west-2.amazonaws.com/qgroundcontrol/latest/QGroundControl.AppImage
 chmod +x ./QGroundControl.AppImage
 
 ./QGroundControl.AppImage&
 
-cd ~/catkin_ws/Firmware && make px4_sitl_default gazebo
+cd ~/PX4-Autopilot && make px4_sitl_default gazebo
 
 
 # roslaunch px4 mavros_posix_sitl.launch
