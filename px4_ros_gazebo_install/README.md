@@ -1,4 +1,5 @@
 > do not use 'ubuntu_sim_ros_kinetic_edited.sh'
+> PX4-Autopilot does not support Ubuntu 16.04
 
 # Change Mavros Installation from source to binary
 1. source ubuntu_sim_ros_melodic_edited.sh
