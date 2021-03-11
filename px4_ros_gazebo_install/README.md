@@ -1,3 +1,5 @@
+> do not use 'ubuntu_sim_ros_kinetic_edited.sh'
+
 # Change Mavros Installation from source to binary
 1. source ubuntu_sim_ros_melodic_edited.sh
 
