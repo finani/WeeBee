@@ -89,7 +89,6 @@ eval $catkin_ws_source
 
 # Get PX4-Autopilot
 sudo apt install git-all -y
-sudo apt upgrade libignition-math2 -y
 cd
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 bash ~/PX4-Autopilot/Tools/setup/ubuntu.sh
@@ -131,6 +130,8 @@ source ~/.bashrc
 sudo usermod -a -G dialout $USER
 sudo apt remove modemmanager -y
 sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
+sudo apt --reinstall install libignition-math4 libignition-math4-dev -y
+sudo apt upgrade -y
 
 cd
 wget https://github.com/mavlink/qgroundcontrol/releases/download/v4.0.9/QGroundControl.AppImage
