@@ -1,6 +1,7 @@
 # Set the /dev/tty* to custom tty name like /dev/ttyWeeBee
 1. cd /etc/udev/rules.d
 2. sudo gedit 99-weebee.rules
+3. reboot or ```sudo udevadm control --reload-rules && udevadm trigger```
 
 # Add the below lines
 ```
