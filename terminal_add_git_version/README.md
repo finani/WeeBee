@@ -23,3 +23,8 @@ else
 fi
 unset color_prompt force_color_prompt
 ```
+# Output
+### Original Terminal
+![original](https://github.com/finani/WeeBee/blob/master/terminal_add_git_version/images/original.png)
+### New One
+![new](https://github.com/finani/WeeBee/blob/master/terminal_add_git_version/images/new.png)
