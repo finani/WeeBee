@@ -54,8 +54,8 @@ sudo apt install --no-install-recommends -y \
 
 # Set up a workspace 
 source /opt/ros/foxy/setup.bash
-mkdir -p ~/robot_ws/src
-cd ~/robot_ws/
+mkdir -p ~/dev_ws/src
+cd ~/dev_ws/
 colcon build --symlink-install
 
 # Set Alias
@@ -63,12 +63,12 @@ echo "
 
 # Set ROS
 source /opt/ros/foxy/setup.bash
-source ~/robot_ws/install/local_setup.bash
+source ~/dev_ws/install/local_setup.bash
 
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 source /usr/share/vcstool-completion/vcs.bash
 source /usr/share/colcon_cd/function/colcon_cd.sh
-export _colcon_cd_root=~/robot_ws
+export _colcon_cd_root=~/dev_ws
 
 export ROS_DOMAIN_ID=7
 export ROS_NAMESPACE=robot1
@@ -85,11 +85,11 @@ export RCUTILS_LOGGING_USE_STDOUT=0
 export RCUTILS_LOGGING_BUFFERED_STREAM=1
 
 # Set ROS Alias Command
-alias cw='cd ~/robot_ws'
-alias cs='cd ~/robot_ws/src'
+alias cw='cd ~/dev_ws'
+alias cs='cd ~/dev_ws/src'
 alias ccd='colcon_cd'
 
-alias cb='cd ~/robot_ws && colcon build --symlink-install'
+alias cb='cd ~/dev_ws && colcon build --symlink-install'
 alias cbs='colcon build --symlink-install'
 alias cbp='colcon build --symlink-install --packages-select'
 alias cbu='colcon build --symlink-install --packages-up-to'
